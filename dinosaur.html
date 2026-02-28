@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spinning Dino</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+
+    #message {
+      color: #e0e0e0;
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      height: 2rem;
+      transition: opacity 0.3s;
+      text-shadow: 0 0 10px #7f5af0;
+    }
+
+    #dino-container {
+      cursor: pointer;
+      position: relative;
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #dino {
+      font-size: 120px;
+      animation: spin 4s linear infinite;
+      display: inline-block;
+      transition: transform 0.1s;
+      user-select: none;
+      filter: drop-shadow(0 0 20px #7f5af0);
+    }
+
+    #dino.clicked {
+      animation: none;
+      animation: bounce 0.4s ease;
+    }
+
+    #dino.rage {
+      animation: rage-spin 0.3s linear infinite;
+      filter: drop-shadow(0 0 30px #ff4444);
+    }
+
+    #dino.dizzy {
+      animation: dizzy-spin 0.8s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    @keyframes rage-spin {
+      from { transform: rotate(0deg) scale(1.2); }
+      to   { transform: rotate(360deg) scale(1.2); }
+    }
+
+    @keyframes dizzy-spin {
+      0%   { transform: rotate(0deg) scale(0.9); }
+      25%  { transform: rotate(200deg) scale(1.1); }
+      50%  { transform: rotate(160deg) scale(0.9); }
+      75%  { transform: rotate(340deg) scale(1.1); }
+      100% { transform: rotate(360deg) scale(0.9); }
+    }
+
+    @keyframes bounce {
+      0%   { transform: scale(1) rotate(var(--rot)); }
+      30%  { transform: scale(1.5) rotate(calc(var(--rot) + 20deg)); }
+      60%  { transform: scale(0.9) rotate(calc(var(--rot) - 10deg)); }
+      100% { transform: scale(1) rotate(var(--rot)); }
+    }
+
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      font-size: 1.5rem;
+      animation: fly-up 0.8s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fly-up {
+      0%   { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
+    }
+
+    #click-counter {
+      color: #7f5af0;
+      font-size: 1rem;
+      margin-top: 20px;
+      letter-spacing: 2px;
+    }
+
+    #hint {
+      color: #555;
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="message">Click the dino! 🦕</div>
+
+  <div id="dino-container">
+    <div id="dino">🦕</div>
+  </div>
+
+  <div id="click-counter">clicks: 0</div>
+  <div id="hint">keep clicking for surprises...</div>
+
+  <div id="particles"></div>
+
+  <script>
+    const dino = document.getElementById('dino');
+    const msg = document.getElementById('message');
+    const counter = document.getElementById('click-counter');
+    const particles = document.getElementById('particles');
+
+    let clicks = 0;
+    let modeTimeout = null;
+
+    const messages = [
+      "RAWR! 🦖",
+      "Stop spinning me!!",
+      "I'm getting dizzy...",
+      "DINO POWER! 💥",
+      "You wouldn't like me when I'm angry!",
+      "Wheeeee!!! 🌀",
+      "*chomp* 🦷",
+      "I am inevitable.",
+      "65 million years and THIS is what I do?",
+      "More! MOREEEE!",
+      "My ancestors were APEX PREDATORS.",
+      "okay fine i like it",
+      "🌟 ULTRA SPIN 🌟",
+    ];
+
+    const emojiBursts = ['⭐','✨','💥','🔥','❄️','💫','🌀','🎉','🎊','⚡'];
+
+    function spawnParticles(x, y) {
+      const count = 6 + Math.floor(Math.random() * 5);
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.textContent = emojiBursts[Math.floor(Math.random() * emojiBursts.length)];
+        const angle = Math.random() * 2 * Math.PI;
+        const radius = 40 + Math.random() * 60;
+        p.style.left = (x + Math.cos(angle) * radius) + 'px';
+        p.style.top  = (y + Math.sin(angle) * radius) + 'px';
+        p.style.animationDelay = (Math.random() * 0.2) + 's';
+        particles.appendChild(p);
+        setTimeout(() => p.remove(), 1000);
+      }
+    }
+
+    function setMode(mode, duration) {
+      clearTimeout(modeTimeout);
+      dino.className = mode;
+      if (duration) {
+        modeTimeout = setTimeout(() => { dino.className = ''; }, duration);
+      }
+    }
+
+    function triggerSpecialEvent() {
+      if (clicks === 10) {
+        setMode('rage', 2000);
+        msg.textContent = "YOU MADE ME ANGRY! 😤";
+        document.body.style.background = '#2e1a1a';
+        setTimeout(() => { document.body.style.background = '#1a1a2e'; }, 2000);
+      } else if (clicks === 25) {
+        setMode('dizzy', 3000);
+        msg.textContent = "ohhh i feel sick... 🤢";
+      } else if (clicks === 50) {
+        msg.textContent = "🏆 50 CLICKS! YOU WIN! 🏆";
+        dino.textContent = '🦖';
+        setMode('rage');
+        clearTimeout(modeTimeout);
+      }
+    }
+
+    dino.addEventListener('click', (e) => {
+      clicks++;
+      counter.textContent = `clicks: ${clicks}`;
+
+      // random message
+      msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+
+      // particle burst
+      spawnParticles(e.clientX, e.clientY);
+
+      // bounce animation reset trick
+      dino.style.setProperty('--rot', (Math.random() * 360) + 'deg');
+      if (dino.className !== 'rage' && dino.className !== 'dizzy') {
+        dino.style.animation = 'none';
+        void dino.offsetWidth; // reflow
+        dino.style.animation = '';
+      }
+
+      // background flash
+      document.body.style.background = `hsl(${Math.random()*360}, 40%, 12%)`;
+      setTimeout(() => {
+        if (clicks < 50) document.body.style.background = '#1a1a2e';
+      }, 200);
+
+      triggerSpecialEvent();
+    });
+  </script>
+</body>
+</html>
