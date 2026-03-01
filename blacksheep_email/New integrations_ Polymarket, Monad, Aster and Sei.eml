@@ -1,0 +1,1009 @@
+Delivered-To: nathan@blacksheep.money
+Received: by 2002:a05:6124:164c:b0:431:99c:6632 with SMTP id u12csp1488475vlc;
+        Sun, 15 Feb 2026 13:14:05 -0800 (PST)
+X-Received: by 2002:a05:622a:5cc:b0:4f1:caed:da6b with SMTP id d75a77b69052e-506a82b6774mr94960231cf.35.1771190045175;
+        Sun, 15 Feb 2026 13:14:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771190045; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gTtV/6iNa7Wsu+jlMbPfLno3pS9mTk21QZz4g9jRb/ClOuK4pwr5L2F210RjIEV1oq
+         U6k2sNuPia8ob7htw8xOy+1xfy64fCWnCk2g8JJLQdmIB0LTtZbCaXPcbQMdMf7JYA11
+         /smVX4c3/tW/+ZqnTqjmK5oqJTPNvWMNPDYPkIh4Hmtu2Ke92vB3oen8pBqmyl4FExOa
+         zaXrG4P6OX+wkmOIQnIs938iYsoBclMEdk+FE7eNLhPYtuwd7lNKAXEm9C37kMuucvUV
+         Xa7KEWyZTR+bGt4VSgME26iiJ2xSysIKe/cbPikHohgiBMSc0UWigd1Pf2dUMw5f6Kmq
+         Qjkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=date:to:references:message-id:subject:mime-version:from
+         :dkim-signature;
+        bh=O9jM9IBraVYzU9vzV2SiDTbl/ygsAQXXKPy/muUhFoY=;
+        fh=ttFC1mMdeJD6daorGsT26o/RrdTP896bAz3L6mncdR0=;
+        b=NpEKwUr+fzLuVXjyfjz5uruJn5/P+F/GYoy+gaUKp85/3ztKQb84pX4JVYqO9EQNgM
+         HStTOMdQUBi92MWGjECAF4LgSXtaws6DJyBp/BnTGSf2Ta44U/geJRUL9gYeCpA5dhxl
+         +lvjjpLiaLRybaVrtfkpSSIvbs7d8bhv3Eq7ZxrmhAQrLmj8XFZgRI3GbIXVqs3A38Lt
+         NJ3x4EGwO9njGRTI+hi7Y5NLdLdSjNvjLk7Lv0R94m3Xr7+PGhcm87DtH08ZMBpGwLrm
+         QYllyYfBDBGXFqBCN9j5KIw5yYPUfRCc24TGVsnZR3Os9XnKu5cWNxoR4t+onjQN69Ed
+         NHWg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@icloud.com header.s=1a1hai header.b="Rm2Ld/6m";
+       spf=pass (google.com: domain of patrickmcgimpsey@icloud.com designates 57.103.87.93 as permitted sender) smtp.mailfrom=patrickmcgimpsey@icloud.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=icloud.com
+Return-Path: <patrickmcgimpsey@icloud.com>
+Received: from outbound.qs.icloud.com (qs-2001i-snip4-11.eps.apple.com. [57.103.87.93])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8971ce1edcesi147677116d6.704.2026.02.15.13.14.04
+        for <nathan@blacksheep.money>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Feb 2026 13:14:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of patrickmcgimpsey@icloud.com designates 57.103.87.93 as permitted sender) client-ip=57.103.87.93;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@icloud.com header.s=1a1hai header.b="Rm2Ld/6m";
+       spf=pass (google.com: domain of patrickmcgimpsey@icloud.com designates 57.103.87.93 as permitted sender) smtp.mailfrom=patrickmcgimpsey@icloud.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=icloud.com
+Received: from outbound.qs.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-east-2d-100-percent-12 (Postfix) with ESMTPS id 932FA18000B5
+	for <nathan@blacksheep.money>; Sun, 15 Feb 2026 21:14:03 +0000 (UTC)
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1771190044; x=1773782044; bh=O9jM9IBraVYzU9vzV2SiDTbl/ygsAQXXKPy/muUhFoY=; h=From:Content-Type:Mime-Version:Subject:Message-Id:To:Date:x-icloud-hme; b=Rm2Ld/6mK3mPG2gsMIS97Kqk/SbRzKAjOOf4AqFtOfEsHwNVRHELhiwJedK6O/nPhoTSmVbMa8+881Pr0zkbepuBgbxPdxG3bswYwmWoaX+UhtD7C2bb/cZa7/sO8Z4BmWkPRrPW42Iy9iIjlTallODdrgWYY5mJm6y/wy0E6MpFqedDveiGeDzVOugM2XAoRshq0c07QeYjsu/BHRpRkITggcP7V8DimVr/iEjlALOFbc/0kiDLUgJiYmXlBxxWMqDtySKLTeUuquieaIo8T31yh53yyQpA493mAzEGJ7h9k6eCYWgwHXt2brD3UEl6RlP++EyO+09Zt0FFQY1jHg==
+Received: from smtpclient.apple (unknown [17.57.155.37])
+	by p00-icloudmta-asmtp-us-east-2d-100-percent-12 (Postfix) with ESMTPSA id 9F0431800131
+	for <nathan@blacksheep.money>; Sun, 15 Feb 2026 21:14:01 +0000 (UTC)
+From: Patrick Mcgimpsey <patrickmcgimpsey@icloud.com>
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_251E2601-F489-4FDB-93D0-1AE5CA3C5722"
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.500.171.1.1\))
+Subject: Fwd: New integrations: Polymarket, Monad, Aster and Sei
+Message-Id: <F416EE57-1989-41E5-AE82-2E9F79672F82@icloud.com>
+References: <9pH_PZ7YQEaLRdQTMLFzDg@geopod-ismtpd-41>
+To: nathan@blacksheep.money
+Date: Mon, 16 Feb 2026 08:13:47 +1100
+X-Mailer: Apple Mail (2.3774.500.171.1.1)
+X-Proofpoint-ORIG-GUID: UgNC2uIs4znWinrLouOapQCKUHpwqtY4
+X-Authority-Info-Out: v=2.4 cv=LoKfC3dc c=1 sm=1 tr=0 ts=6992371c
+ cx=c_apl:c_apl_out:c_pps a=bsP7O+dXZ5uKcj+dsLqiMw==:117
+ a=bsP7O+dXZ5uKcj+dsLqiMw==:17 a=HzLeVaNsDn8A:10 a=f7IdgyKtn90A:10
+ a=x7bEGLp0ZPQA:10 a=UA8huuJAXd4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Mpw57Om8IfrbqaoTuvik:22 a=GgsMoib0sEa3-_RKJdDe:22 a=j6X1kzBsAAAA:8
+ a=YRWr90f9AAAA:8 a=KWigWisyIbe7JDt5dNsA:9 a=QEXdDO2ut3YA:10 a=iaci_UmeAAAA:20
+ a=e4ghVlvlAAAA:8 a=10EZbrJVhATGylfj1hMA:9 a=WwzZVykLXksA_gxw:21
+ a=_W_S_7VecoQA:10 a=Mvbd8VLumc5Q60gWaoeb:22 a=4Y88iJNFsnXLYBM3AvKv:22
+ a=4xixrdoDjWaj6PZ6pOK8:22 a=bA3UWDv6hWIuX7UZL3qL:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjE1MDE4MCBTYWx0ZWRfXyqS/mdbYHbsz
+ NKyFP1elKp3KRIFiVq8bRcHoiN/k1AEG1z4vvrVRZUbisXuPUjOKwOWwLopyoGH7OSqzYR9TsUJ
+ +YMvOJ9abVMp7nl7VZtrWvrm4jSmm2MMI0X8Nx4FbSLMZL6a7ROuwsMZq+WRMvyDKDsgCiZwJT+
+ 883tEgRuN2VupdwD4eO6cDaYXSmSpquCQFNU0x8+g1Z+x1Odruo9s9WLT4PbaDKwBGFX1GCzNkp
+ 5RczCZX9UQ4yntX8NNCMdNFg2CLIQq1zfaoBiRcd6V2vHZA/S1SQcwnnhHBPl4ZotReRuQHpedy
+ 1Qph2fqR/tpPOiSfHIRED5oUZ4i9Kd8KVTlhX+LzEc7GwtRxmZ4M4jl6D38+M4=
+X-Proofpoint-GUID: UgNC2uIs4znWinrLouOapQCKUHpwqtY4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-15_07,2026-02-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999
+ lowpriorityscore=0 suspectscore=0 bulkscore=0 clxscore=1015 phishscore=0
+ adultscore=0 mlxscore=0 malwarescore=0 spamscore=0 classifier=spam
+ authscore=0 adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2602150180
+X-JNJ: AAAAAAABRzhOJlyekwnYGcP/LI6+CEHTEEwOqmTS7sK0HTGvxTh133v7Sv5VZDcwoAMAfr7UX3P0XVzU3O2ZY5F30tdn7IJNDQ9z3l3lWRoSVlRsw1nWJ0qZWOUXluiKn/dsjTIY0E1G5aHQZrECIo+j2p1JBe6LfhmRRjb6t5NL+IVjAF3vRDoqRImuSmGXJgtIIdukF6sX5ViOk5CLKt24jBeS1s/QPGU3GTxq5F6ERDGGqnT+p/ZfmTKjIwlkF/VB3fTXgm5XnZYoOr8VJfsdQ6lr86diTjX/zQgPK1LOqVgr6o0oZ0v6miUfywkCekEPDm7t7/omQNdRZXXpfIC9MEjVB1GX8mZUl57rY6A+tniA69rTYBkMF88MdZXuMkLWM9rLW7uyl2jvtoA3IwHAooEY2gPSmXmdVYMaXK47qHVRxvUJI+fe8AcJb3CGZQjkHbiVNYwaAmmTD5AAiUJ72ylioUnZ5qAqY4/BUNXSX953vqkmQ4H5e5qhDbKBWjHqYOPif3O/0Q3mbo8OWKjThYDIr+lUsjyX8X+mgiUw/Y8N0EqRLBYQtnKwnOI0kA5zECky/OCPhkm2RfP8pH2VEAyy2rWbgLOIdarkj2WjVgFT6l1/rZh+Ez3/0GjXdXAzl8GhoVkMJKhwq9PneJaS0kxHSvhbsCk=
+
+
+--Apple-Mail=_251E2601-F489-4FDB-93D0-1AE5CA3C5722
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+
+
+> Begin forwarded message:
+>=20
+> From: "Summ - info at summ.com" =
+<info_at_summ_com_uzwdwsg@simplelogin.co>
+> Subject: New integrations: Polymarket, Monad, Aster and Sei
+> Date: 3 February 2026 at 4:53:44=E2=80=AFPM AEDT
+> To: mountain.utter703@simplelogin.com
+> Reply-To: "Summ - info at summ.com" =
+<info_at_summ_com_uzwdwsg@simplelogin.co>
+>=20
+>  =
+<https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3davagnbvi2=
+fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6buphfje=
+uft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwa275g6tjylpaa>
+> Formerly Crypto Tax Calculator
+> =E2=80=8A
+> You asked. We shipped four new integrations
+> =20
+> You've been experimenting and trading on a bunch of new platforms, so =
+on top of the 3,500+ integrations we already support, we're happy to =
+share that we=E2=80=99ve added direct support for four more: Polymarket, =
+Monad, Aster DEX, and Sei.
+> =20
+> Thanks to the users who requested these integrations. We love hearing =
+about the new places you=E2=80=99re trading so we can add support to =
+make managing your crypto portfolio and tax reports easier. If you=E2=80=99=
+d like to request an integration, you may do so here. =
+<https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3davaknbvi2=
+fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6buphfje=
+uft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwvzxsw6tjpjxoutis4zz2amr33v5i=
+igkhw53ncfvivckjskei5ofp6e4pmlyvxgce2p7tpgy7oej5wtnhgvzylz3vs2zlvx4jriiejh=
+qe6evnvnh4ckvic4qs3upqriuud>
+> =20
+> If you're trading on any of these platforms, your transactions now =
+import directly into your account.
+> =20
+> Polymarket
+> =20
+> If you've been placing bets on who'll win the Super Bowl, or where =
+Bitcoin's heading on Polymarket, here's your next win: Summ now supports =
+Polymarket.
+> =20
+> Connect using your public wallet address or upload via CSV. Either =
+way, the data flows straight into your account without the need for =
+manual entry.
+> =20
+> Monad EVM
+> =20
+> Monad is an EVM-compatible layer-1 blockchain designed for =
+high-performance applications. Import your data using your public wallet =
+address or CSV upload. Your transactions will sync automatically.
+> =20
+> Aster DEX
+> =20
+> Aster DEX is a non-custodial platform for decentralized perpetual =
+contracts. Connect via secure API for automatic imports, or upload your =
+transaction CSV directly.=20
+> =20
+> Sei network=20
+> =20
+> Sei is a layer-1 blockchain designed for trading applications. Add =
+your Sei wallet address to pull in your transaction history.
+> =20
+> All four integrations are live now. Log in to connect your accounts =
+and see your transactions imported automatically.
+> Log in =
+<https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3davaonbvi2=
+fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6buphfje=
+uft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwa275g6tjylpaa>
+> Want to learn more? Read the blog: New Year, New Integrations =
+<https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3davasnbvi2=
+fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6buphfje=
+uft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwa275g6tjylpaahmkasn5uis3t5uh=
+ykkf5ykhgnlszgphsurqlgnnp67xqbyzhsg4hopw6o7xppvew7pv2wis3py52qbnun4dslakz3=
+uekgrkuw>
+> =20
+> Team Summ (formerly Crypto Tax Calculator)
+> =E2=80=8A
+>  =
+<https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3davawnbvi2=
+fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6buphfje=
+uft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwa275g6tjylpaa>
+>  =
+<https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dava2nbvi2=
+fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6buphfje=
+uft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwlrt2g2dtui7medklm3vuvqcy>	 =
+<https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dava6nbvi2=
+fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6buphfje=
+uft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudr67zp4wsbr7lxbqfj242e3ews3zwip=
+jspxwysmh73segkca>	 =
+<https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3davbcnbvi2=
+fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6buphfje=
+uft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudr6kzxrhmfrzkgbu7k26snmvwulzv4q=
+jmn5j>
+> =E2=80=8A
+> 	4.6/5 on TrustPilot
+> 	5/5 on Google Reviews
+> 315 Montgomery St, San Francisco, CA 94104
+> Update your email preferences =
+<https://go.summ.com/-/m/s/preferences?k=3DFWNyeXB0b3RheGNhbGN1bGF0b3JpbwB=
+i-pByUa4q8bUDAjBpgY1nImHa_uKNjFF_ELE> or unsubscribe =
+<https://go.summ.com/-/m/s/unsubscribe?k=3DFWNyeXB0b3RheGNhbGN1bGF0b3JpbwB=
+i-pByUa4q8bUDAjBpgY1nImHa_uKNjFF_ELE>=20
+>=20
+
+
+--Apple-Mail=_251E2601-F489-4FDB-93D0-1AE5CA3C5722
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"overflow-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;"><br =
+id=3D"lineBreakAtBeginningOfMessage"><div><br><blockquote =
+type=3D"cite"><div>Begin forwarded message:</div><br =
+class=3D"Apple-interchange-newline"><div style=3D"margin-top: 0px; =
+margin-right: 0px; margin-bottom: 0px; margin-left: 0px;"><span =
+style=3D"font-family: -webkit-system-font, Helvetica Neue, Helvetica, =
+sans-serif; color:rgba(0, 0, 0, 1.0);"><b>From: </b></span><span =
+style=3D"font-family: -webkit-system-font, Helvetica Neue, Helvetica, =
+sans-serif;">"Summ - info at summ.com" =
+&lt;info_at_summ_com_uzwdwsg@simplelogin.co&gt;<br></span></div><div =
+style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;"><span style=3D"font-family: -webkit-system-font, =
+Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, =
+1.0);"><b>Subject: </b></span><span style=3D"font-family: =
+-webkit-system-font, Helvetica Neue, Helvetica, sans-serif;"><b>New =
+integrations: Polymarket, Monad, Aster and Sei</b><br></span></div><div =
+style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;"><span style=3D"font-family: -webkit-system-font, =
+Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, =
+1.0);"><b>Date: </b></span><span style=3D"font-family: =
+-webkit-system-font, Helvetica Neue, Helvetica, sans-serif;">3 February =
+2026 at 4:53:44=E2=80=AFPM AEDT<br></span></div><div style=3D"margin-top: =
+0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;"><span =
+style=3D"font-family: -webkit-system-font, Helvetica Neue, Helvetica, =
+sans-serif; color:rgba(0, 0, 0, 1.0);"><b>To: </b></span><span =
+style=3D"font-family: -webkit-system-font, Helvetica Neue, Helvetica, =
+sans-serif;">mountain.utter703@simplelogin.com<br></span></div><div =
+style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;"><span style=3D"font-family: -webkit-system-font, =
+Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, =
+1.0);"><b>Reply-To: </b></span><span style=3D"font-family: =
+-webkit-system-font, Helvetica Neue, Helvetica, sans-serif;">"Summ - =
+info at summ.com" =
+&lt;info_at_summ_com_uzwdwsg@simplelogin.co&gt;<br></span></div><br><div><=
+meta charset=3D"UTF-8"><table class=3D"nl-container" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box; caret-color: rgb(0, 0, 0); font-family: =
+Helvetica; font-size: 12px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; background-color: rgb(255, 254, 250); =
+text-decoration: none;"><tbody style=3D"box-sizing: border-box;"><tr =
+style=3D"box-sizing: border-box;"><td style=3D"box-sizing: =
+border-box;"><table class=3D"row row-1" align=3D"center" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box; background-color: rgb(255, 254, 248); =
+background-size: auto;"><tbody style=3D"box-sizing: border-box;"><tr =
+style=3D"box-sizing: border-box;"><td style=3D"box-sizing: =
+border-box;"><table class=3D"row-content stack" align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+width=3D"640" style=3D"box-sizing: border-box; background-size: auto; =
+background-color: rgb(249, 248, 238); border-radius: 0px; =
+padding-bottom: 24px; padding-top: 24px; width: 640px; margin: 0px =
+auto;"><tbody style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td class=3D"column column-1" width=3D"100%" =
+style=3D"box-sizing: border-box; font-weight: 400; text-align: left; =
+padding-left: 24px; padding-right: 24px; padding-top: 24px; =
+vertical-align: top;"><table class=3D"image_block block-1" width=3D"100%" =
+border=3D"0" cellpadding=3D"2" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td class=3D"pad" =
+style=3D"box-sizing: border-box;"><div class=3D"alignment" =
+align=3D"center" style=3D"box-sizing: border-box;"><div =
+style=3D"box-sizing: border-box; max-width: 237px;"><a =
+href=3D"https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dav=
+agnbvi2fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6=
+buphfjeuft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwa275g6tjylpaa" =
+target=3D"_blank" style=3D"box-sizing: border-box; color: inherit;"><img =
+src=3D"https://ic.autopilotapp.com/images/ap-cryptotaxcalculatorio/Summ%20=
+Logo%20Violet.png?v=3D134&amp;w=3D284" width=3D"237" alt=3D"" title=3D"" =
+height=3D"auto" style=3D"box-sizing: border-box; display: block; height: =
+auto; border: 0px; width: =
+237px;"></a></div></div></td></tr></tbody></table><table =
+class=3D"text_block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: =
+border-box; word-break: break-word;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td class=3D"pad" =
+style=3D"box-sizing: border-box; padding-left: 12px; padding-right: =
+12px; padding-top: 12px;"><div style=3D"box-sizing: border-box; =
+font-family: Arial;"><div style=3D"box-sizing: border-box; font-size: =
+12px; font-family: Inter, Arial; color: rgb(138, 130, 117); line-height: =
+1.2;"><div style=3D"box-sizing: border-box; line-height: inherit; =
+margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 12px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; text-align: center;"><span =
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 12px; line-height: inherit; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; word-break: break-word;">Formerly =
+Crypto Tax =
+Calculator</span></div></div></div></td></tr></tbody></table></td></tr></t=
+body></table></td></tr></tbody></table><table class=3D"row row-2" =
+align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: border-box; =
+background-color: rgb(255, 254, 248); background-size: auto;"><tbody =
+style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td style=3D"box-sizing: border-box;"><table =
+class=3D"row-content stack" align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"640" =
+style=3D"box-sizing: border-box; background-size: auto; =
+background-color: rgb(249, 248, 238); border-radius: 0px; width: 640px; =
+margin: 0px auto;"><tbody style=3D"box-sizing: border-box;"><tr =
+style=3D"box-sizing: border-box;"><td class=3D"column column-1" =
+width=3D"100%" style=3D"box-sizing: border-box; font-weight: 400; =
+text-align: left; padding-bottom: 10px; padding-left: 40px; =
+padding-right: 40px; vertical-align: top;"><table class=3D"divider_block =
+block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"box-sizing: border-box;"><tbody =
+style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td class=3D"pad" style=3D"box-sizing: border-box; =
+padding-bottom: 16px; padding-top: 16px;"><div class=3D"alignment" =
+align=3D"center" style=3D"box-sizing: border-box;"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" =
+style=3D"box-sizing: border-box;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td =
+class=3D"divider_inner" style=3D"box-sizing: border-box; font-size: 1px; =
+line-height: 1px; border-top-width: 1px; border-top-style: solid; =
+border-top-color: rgb(225, 223, 207);"><span style=3D"box-sizing: =
+border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: inherit; line-height: inherit; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; word-break: =
+break-word;">=E2=80=8A</span></td></tr></tbody></table></div></td></tr></t=
+body></table><table class=3D"text_block block-2" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box; word-break: break-word;"><tbody =
+style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td class=3D"pad" style=3D"box-sizing: border-box; =
+font-style: normal; font-weight: 400; line-height: 14.4px; padding-top: =
+24px;"><div style=3D"box-sizing: border-box; font-family: Arial;"><div =
+style=3D"box-sizing: border-box; font-size: 12px; font-family: Inter, =
+Arial; color: rgb(32, 29, 25); line-height: 1.5;"><div =
+style=3D"box-sizing: border-box; line-height: inherit; margin: 0px; =
+padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+text-align: left; letter-spacing: -0.2px;"><span style=3D"box-sizing: =
+border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 26px; line-height: inherit; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; word-break: break-word;">You asked. We =
+shipped four new integrations</span></div><p style=3D"box-sizing: =
+border-box; line-height: inherit; margin: 0px; padding: 0px; border: =
+0px; font-style: inherit; font-variant-caps: inherit; font-weight: =
+inherit; font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: =
+-0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: -0.2px;">You've been =
+experimenting and trading on a bunch of new platforms, so on top of the =
+3,500+ integrations we already support, we're happy to share that =
+we=E2=80=99ve added direct support for four more: Polymarket, Monad, =
+Aster DEX, and Sei.</div><p style=3D"box-sizing: border-box; =
+line-height: inherit; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: =
+-0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: -0.2px;">Thanks to the =
+users who requested these integrations. We love hearing about the new =
+places you=E2=80=99re trading so we can add support to make managing =
+your crypto portfolio and tax reports easier. If you=E2=80=99d like to =
+request an integration, you may do so<span =
+class=3D"Apple-converted-space">&nbsp;</span><a =
+href=3D"https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dav=
+aknbvi2fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6=
+buphfjeuft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwvzxsw6tjpjxoutis4zz2a=
+mr33v5iigkhw53ncfvivckjskei5ofp6e4pmlyvxgce2p7tpgy7oej5wtnhgvzylz3vs2zlvx4=
+jriiejhqe6evnvnh4ckvic4qs3upqriuud" style=3D"box-sizing: border-box; =
+color: rgb(165, 95, 255); text-decoration: underline;">here.</a></div><p =
+style=3D"box-sizing: border-box; line-height: inherit; margin: 0px; =
+padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: =
+-0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: -0.2px;">If you're =
+trading on any of these platforms, your transactions now import directly =
+into your account.</div><p style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+text-align: left; letter-spacing: -0.2px;">&nbsp;</p><div =
+style=3D"box-sizing: border-box; line-height: inherit; margin: 0px; =
+padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;"><span style=3D"box-sizing: border-box; margin: =
+0px; padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 22px; =
+line-height: inherit; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+word-break: break-word;">Polymarket</span></div><p style=3D"box-sizing: =
+border-box; line-height: inherit; margin: 0px; padding: 0px; border: =
+0px; font-style: inherit; font-variant-caps: inherit; font-weight: =
+inherit; font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: =
+-0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: -0.2px;">If you've =
+been placing bets on who'll win the Super Bowl, or where Bitcoin's =
+heading on Polymarket, here's your next win: Summ now supports =
+Polymarket.</div><p style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; =
+line-height: inherit; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;">Connect using your public wallet address or =
+upload via CSV. Either way, the data flows straight into your account =
+without the need for manual entry.</div><p style=3D"box-sizing: =
+border-box; line-height: inherit; margin: 0px; padding: 0px; border: =
+0px; font-style: inherit; font-variant-caps: inherit; font-weight: =
+inherit; font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: =
+-0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: -0.2px;"><span =
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 22px; line-height: inherit; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; word-break: break-word;">Monad =
+EVM</span></div><p style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; =
+line-height: inherit; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;">Monad is an EVM-compatible layer-1 blockchain =
+designed for high-performance applications. Import your data using your =
+public wallet address or CSV upload. Your transactions will sync =
+automatically.</div><p style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; =
+line-height: inherit; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;"><span style=3D"box-sizing: border-box; margin: =
+0px; padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 22px; =
+line-height: inherit; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+word-break: break-word;">Aster DEX</span></div><p style=3D"box-sizing: =
+border-box; line-height: inherit; margin: 0px; padding: 0px; border: =
+0px; font-style: inherit; font-variant-caps: inherit; font-weight: =
+inherit; font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: =
+-0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: -0.2px;">Aster DEX is =
+a non-custodial platform for decentralized perpetual contracts. Connect =
+via secure API for automatic imports, or upload your transaction CSV =
+directly.&nbsp;</div><p style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; =
+line-height: inherit; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 14px; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+letter-spacing: -0.2px;"><span style=3D"box-sizing: border-box; margin: =
+0px; padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 22px; =
+line-height: inherit; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+word-break: break-word;">Sei network&nbsp;</span></div><p =
+style=3D"box-sizing: border-box; line-height: inherit; margin: 0px; =
+padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: =
+-0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: -0.2px;"><span =
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 14px; line-height: inherit; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; word-break: break-word;">Sei is a =
+layer-1 blockchain designed for trading applications. Add your Sei =
+wallet address to pull in your transaction history.</span></div><p =
+style=3D"box-sizing: border-box; line-height: inherit; margin: 0px; =
+padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 14px; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: =
+-0.2px;">&nbsp;</p><div style=3D"box-sizing: border-box; line-height: =
+inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: 14px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; letter-spacing: -0.2px;"><span =
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 14px; line-height: inherit; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; word-break: break-word;">All four =
+integrations are live now. Log in to connect your accounts and see your =
+transactions imported =
+automatically.</span></div></div></div></td></tr></tbody></table><table =
+class=3D"button_block block-3" width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td class=3D"pad" =
+style=3D"box-sizing: border-box; padding-bottom: 24px; padding-top: =
+24px; text-align: left;"><div class=3D"alignment" align=3D"left" =
+style=3D"box-sizing: border-box;"><a =
+href=3D"https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dav=
+aonbvi2fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6=
+buphfjeuft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwa275g6tjylpaa" =
+target=3D"_blank" style=3D"box-sizing: border-box; color: rgb(18, 17, =
+15); text-decoration: none;"><span class=3D"button" style=3D"box-sizing: =
+border-box; margin: 0px; padding: 11px 28px; border: 1px solid rgb(165, =
+95, 255); font-style: inherit; font-variant-caps: inherit; font-weight: =
+400; font-stretch: inherit; font-size: 16px; line-height: inherit; =
+font-family: Inter, Arial; font-size-adjust: inherit; font-kerning: =
+inherit; font-variant-alternates: inherit; font-variant-ligatures: =
+inherit; font-variant-numeric: inherit; font-variant-east-asian: =
+inherit; font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; background-color: rgb(165, 95, 255); =
+border-radius: 44px; color: rgb(18, 17, 15); display: inline-block; =
+text-align: center; width: auto; word-break: keep-all; letter-spacing: =
+normal;"><span style=3D"box-sizing: border-box; margin: 0px; padding: =
+0px; border: 0px; font-style: inherit; font-variant-caps: inherit; =
+font-weight: inherit; font-stretch: inherit; font-size: inherit; =
+line-height: 19.2px; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-variant-emoji: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+word-break: break-word;"><strong style=3D"box-sizing: border-box;">Log =
+in</strong></span></span></a></div></td></tr></tbody></table><table =
+class=3D"text_block block-4" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: =
+border-box; word-break: break-word;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td class=3D"pad" =
+style=3D"box-sizing: border-box;"><div style=3D"box-sizing: border-box; =
+font-family: Arial;"><div style=3D"box-sizing: border-box; font-size: =
+14px; font-family: Inter, Arial; color: rgb(32, 29, 25); line-height: =
+1.5;"><div style=3D"box-sizing: border-box; line-height: inherit; =
+margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: inherit; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit;">Want to learn more? Read the =
+blog:<span class=3D"Apple-converted-space">&nbsp;</span><a =
+href=3D"https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dav=
+asnbvi2fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6=
+buphfjeuft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwa275g6tjylpaahmkasn5u=
+is3t5uhykkf5ykhgnlszgphsurqlgnnp67xqbyzhsg4hopw6o7xppvew7pv2wis3py52qbnun4=
+dslakz3uekgrkuw" target=3D"_blank" rel=3D"noopener" style=3D"box-sizing: =
+border-box; color: rgb(132, 43, 242); text-decoration: underline;">New =
+Year, New Integrations</a></div><p style=3D"box-sizing: border-box; =
+line-height: inherit; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: inherit; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit;">&nbsp;</p><div style=3D"box-sizing: =
+border-box; line-height: inherit; margin: 0px; padding: 0px; border: =
+0px; font-style: inherit; font-variant-caps: inherit; font-weight: =
+inherit; font-stretch: inherit; font-size: inherit; font-family: =
+inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit;">Team =
+Summ (formerly Crypto Tax =
+Calculator)</div></div></div></td></tr></tbody></table></td></tr></tbody><=
+/table></td></tr></tbody></table><table class=3D"row row-3" =
+align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: border-box; =
+background-color: rgb(255, 254, 248);"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td =
+style=3D"box-sizing: border-box;"><table class=3D"row-content stack" =
+align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" width=3D"640" style=3D"box-sizing: border-box; =
+background-color: rgb(249, 248, 238); border-radius: 0px; width: 640px; =
+margin: 0px auto;"><tbody style=3D"box-sizing: border-box;"><tr =
+style=3D"box-sizing: border-box;"><td class=3D"column column-1" =
+width=3D"100%" style=3D"box-sizing: border-box; font-weight: 400; =
+text-align: left; padding-bottom: 10px; padding-left: 40px; =
+padding-right: 40px; vertical-align: top;"><table class=3D"divider_block =
+block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"box-sizing: border-box;"><tbody =
+style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td class=3D"pad" style=3D"box-sizing: border-box; =
+padding-bottom: 16px; padding-top: 16px;"><div class=3D"alignment" =
+align=3D"center" style=3D"box-sizing: border-box;"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" =
+style=3D"box-sizing: border-box;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td =
+class=3D"divider_inner" style=3D"box-sizing: border-box; font-size: 1px; =
+line-height: 1px; border-top-width: 1px; border-top-style: solid; =
+border-top-color: rgb(178, 174, 162);"><span style=3D"box-sizing: =
+border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: inherit; line-height: inherit; font-family: inherit; =
+font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; word-break: =
+break-word;">=E2=80=8A</span></td></tr></tbody></table></div></td></tr></t=
+body></table><table class=3D"image_block block-2" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td class=3D"pad" =
+style=3D"box-sizing: border-box; padding: 24px 0px 40px; width: =
+560px;"><div class=3D"alignment" align=3D"center" style=3D"box-sizing: =
+border-box;"><div style=3D"box-sizing: border-box; max-width: 84px;"><a =
+href=3D"https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dav=
+awnbvi2fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6=
+buphfjeuft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwa275g6tjylpaa" =
+target=3D"_blank" style=3D"box-sizing: border-box; color: inherit;"><img =
+src=3D"https://ic.autopilotapp.com/images/ap-cryptotaxcalculatorio/Summ%20=
+Brandmark%20Violet.png?v=3D134&amp;w=3D100" width=3D"84" alt=3D"" =
+title=3D"" height=3D"auto" style=3D"box-sizing: border-box; display: =
+block; height: auto; border: 0px; width: =
+84px;"></a></div></div></td></tr></tbody></table><table =
+class=3D"social_block block-3" width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td class=3D"pad" =
+style=3D"box-sizing: border-box; padding: 8px 10px; text-align: =
+center;"><div class=3D"alignment" align=3D"center" style=3D"box-sizing: =
+border-box;"><table class=3D"social-table" width=3D"156px" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box; display: inline-block;"><tbody =
+style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td style=3D"box-sizing: border-box; padding: 0px 10px;"><a =
+href=3D"https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dav=
+a2nbvi2fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6=
+buphfjeuft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudqwlrt2g2dtui7medklm3vuv=
+qcy" target=3D"_blank" style=3D"box-sizing: border-box; color: =
+inherit;"><img =
+src=3D"https://app-rsrc.getbee.io/public/resources/social-networks-icon-se=
+ts/circle-black/twitter@2x.png" width=3D"32" height=3D"auto" =
+alt=3D"Twitter" title=3D"Twitter" style=3D"box-sizing: border-box; =
+display: block; height: auto; border: 0px;"></a></td><td =
+style=3D"box-sizing: border-box; padding: 0px 10px;"><a =
+href=3D"https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dav=
+a6nbvi2fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6=
+buphfjeuft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudr67zp4wsbr7lxbqfj242e3e=
+ws3zwipjspxwysmh73segkca" target=3D"_blank" style=3D"box-sizing: =
+border-box; color: inherit;"><img =
+src=3D"https://app-rsrc.getbee.io/public/resources/social-networks-icon-se=
+ts/circle-black/linkedin@2x.png" width=3D"32" height=3D"auto" =
+alt=3D"LinkedIn" title=3D"LinkedIn" style=3D"box-sizing: border-box; =
+display: block; height: auto; border: 0px;"></a></td><td =
+style=3D"box-sizing: border-box; padding: 0px 10px;"><a =
+href=3D"https://go.summ.com/r?t=3Dabrpvedskgxcv4nvambda2mbrvtseyo273ri3dav=
+bcnbvi2fucgnklpwkhsqppgxo7qmgr2yahqiqbccfyvzarmcp7yor4omf5g4rmduokuvm4u4y6=
+buphfjeuft7iqoeh442jxpuqyqraxyhm2vsddliahr6ejebbwudr6kzxrhmfrzkgbu7k26snmv=
+wulzv4qjmn5j" target=3D"_blank" style=3D"box-sizing: border-box; color: =
+inherit;"><img =
+src=3D"https://app-rsrc.getbee.io/public/resources/social-networks-icon-se=
+ts/circle-black/youtube@2x.png" width=3D"32" height=3D"auto" =
+alt=3D"YouTube" title=3D"YouTube" style=3D"box-sizing: border-box; =
+display: block; height: auto; border: =
+0px;"></a></td></tr></tbody></table></div></td></tr></tbody></table><div =
+class=3D"spacer_block block-4" style=3D"box-sizing: border-box; height: =
+16px; line-height: 16px; font-size: 1px;">=E2=80=8A</div><table =
+class=3D"html_block block-5" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: =
+border-box;"><tbody style=3D"box-sizing: border-box;"><tr =
+style=3D"box-sizing: border-box;"><td class=3D"pad" style=3D"box-sizing: =
+border-box;"><div align=3D"center" style=3D"box-sizing: border-box; =
+font-family: Inter, Arial; text-align: center;"><table cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D"box-sizing: =
+border-box; margin: 0px; padding: 0px;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td align=3D"center" =
+style=3D"box-sizing: border-box; padding: 8px 16px;"><table =
+cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-sizing: =
+border-box; margin: 0px auto;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td align=3D"center" =
+valign=3D"middle" style=3D"box-sizing: border-box; padding-right: =
+8px;"><img =
+src=3D"https://ic.autopilotapp.com/images/ap-cryptotaxcalculatorio/TrustPi=
+lot%20Icon%20L.png?h=3D28&amp;v=3D134&amp;w=3D28" alt=3D"Partner Icon" =
+width=3D"24" height=3D"24" style=3D"box-sizing: border-box; display: =
+block; border: 0px; outline: currentcolor; text-decoration: none; =
+max-width: 100%; height: auto;"></td><td align=3D"left" valign=3D"middle" =
+style=3D"box-sizing: border-box; font-family: Inter, Arial, Helvetica, =
+sans-serif; font-size: 12px; line-height: 1.5; color: rgb(138, 130, =
+117);">4.6/5 on =
+TrustPilot</td></tr></tbody></table></td></tr></tbody></table></div></td><=
+/tr></tbody></table><table class=3D"html_block block-6" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td class=3D"pad" =
+style=3D"box-sizing: border-box;"><div align=3D"center" =
+style=3D"box-sizing: border-box; font-family: Inter, Arial; text-align: =
+center;"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+width=3D"100%" style=3D"box-sizing: border-box; margin: 0px; padding: =
+0px;"><tbody style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td align=3D"center" style=3D"box-sizing: border-box; =
+padding: 8px 16px;"><table cellpadding=3D"0" cellspacing=3D"0" =
+border=3D"0" style=3D"box-sizing: border-box; margin: 0px auto;"><tbody =
+style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td align=3D"center" valign=3D"middle" style=3D"box-sizing: =
+border-box; padding-right: 8px;"><img =
+src=3D"https://ic.autopilotapp.com/images/ap-cryptotaxcalculatorio/Google%=
+20Icon%20L.png?h=3D28&amp;v=3D134&amp;w=3D28" alt=3D"Partner Icon" =
+width=3D"24" height=3D"24" style=3D"box-sizing: border-box; display: =
+block; border: 0px; outline: currentcolor; text-decoration: none; =
+max-width: 100%; height: auto;"></td><td align=3D"left" valign=3D"middle" =
+style=3D"box-sizing: border-box; font-family: Inter, Arial, Helvetica, =
+sans-serif; font-size: 12px; line-height: 1.5; color: rgb(138, 130, =
+117);">5/5 on Google =
+Reviews</td></tr></tbody></table></td></tr></tbody></table></div></td></tr=
+></tbody></table></td></tr></tbody></table></td></tr></tbody></table><tabl=
+e class=3D"row row-4" align=3D"center" width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box; background-color: rgb(255, 254, =
+248);"><tbody style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td style=3D"box-sizing: border-box;"><table =
+class=3D"row-content stack" align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"640" =
+style=3D"box-sizing: border-box; background-color: rgb(249, 248, 238); =
+border-radius: 0px; width: 640px; margin: 0px auto;"><tbody =
+style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td class=3D"column column-1" width=3D"100%" =
+style=3D"box-sizing: border-box; font-weight: 400; text-align: left; =
+padding: 24px 16px 8px; vertical-align: top;"><table class=3D"text_block =
+block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"box-sizing: border-box; word-break: =
+break-word;"><tbody style=3D"box-sizing: border-box;"><tr =
+style=3D"box-sizing: border-box;"><td class=3D"pad" style=3D"box-sizing: =
+border-box;"><div style=3D"box-sizing: border-box; font-family: =
+Arial;"><div style=3D"box-sizing: border-box; font-size: 14px; =
+font-family: Inter, Arial; color: rgb(168, 162, 153); line-height: =
+1.2;"><div style=3D"box-sizing: border-box; line-height: inherit; =
+margin: 0px; padding: 0px; border: 0px; font-style: inherit; =
+font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: inherit; font-family: inherit; font-size-adjust: inherit; =
+font-kerning: inherit; font-variant-alternates: inherit; =
+font-variant-ligatures: inherit; font-variant-numeric: inherit; =
+font-variant-east-asian: inherit; font-variant-position: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; text-align: center;"><span =
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; =
+font-style: inherit; font-variant-caps: inherit; font-weight: inherit; =
+font-stretch: inherit; font-size: 12px; line-height: inherit; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-variant-emoji: inherit; =
+font-feature-settings: inherit; font-optical-sizing: inherit; =
+font-variation-settings: inherit; word-break: break-word; color: =
+rgb(138, 130, 117);">315 Montgomery St, San Francisco, CA =
+94104</span></div></div></div></td></tr></tbody></table></td></tr></tbody>=
+</table></td></tr></tbody></table><table class=3D"row row-5" =
+align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: border-box; =
+background-color: rgb(255, 254, 248);"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td =
+style=3D"box-sizing: border-box;"><table class=3D"row-content stack" =
+align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" width=3D"640" style=3D"box-sizing: border-box; =
+background-color: rgb(249, 248, 238); border-radius: 0px; padding: 8px =
+16px 24px; width: 640px; margin: 0px auto;"><tbody style=3D"box-sizing: =
+border-box;"><tr style=3D"box-sizing: border-box;"><td class=3D"column =
+column-1" width=3D"100%" style=3D"box-sizing: border-box; font-weight: =
+400; text-align: left; padding-bottom: 5px; padding-top: 5px; =
+vertical-align: top;"><table class=3D"text_block block-1" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"box-sizing: border-box; word-break: break-word;"><tbody =
+style=3D"box-sizing: border-box;"><tr style=3D"box-sizing: =
+border-box;"><td class=3D"pad" style=3D"box-sizing: border-box;"><div =
+style=3D"box-sizing: border-box; font-family: Arial;"><div =
+style=3D"box-sizing: border-box; font-size: 12px; font-family: Inter, =
+Arial; color: rgb(138, 130, 117); line-height: 1.2;"><div =
+style=3D"box-sizing: border-box; line-height: inherit; margin: 0px; =
+padding: 0px; border: 0px; font-style: inherit; font-variant-caps: =
+inherit; font-weight: inherit; font-stretch: inherit; font-size: 12px; =
+font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; =
+font-variant-alternates: inherit; font-variant-ligatures: inherit; =
+font-variant-numeric: inherit; font-variant-east-asian: inherit; =
+font-variant-position: inherit; font-feature-settings: inherit; =
+font-optical-sizing: inherit; font-variation-settings: inherit; =
+text-align: center;"><a =
+href=3D"https://go.summ.com/-/m/s/preferences?k=3DFWNyeXB0b3RheGNhbGN1bGF0=
+b3JpbwBi-pByUa4q8bUDAjBpgY1nImHa_uKNjFF_ELE" target=3D"_blank" =
+rel=3D"noopener" style=3D"box-sizing: border-box; color: rgb(138, 130, =
+117);">Update your email preferences</a><span =
+class=3D"Apple-converted-space">&nbsp;</span>or<span =
+class=3D"Apple-converted-space">&nbsp;</span><a =
+href=3D"https://go.summ.com/-/m/s/unsubscribe?k=3DFWNyeXB0b3RheGNhbGN1bGF0=
+b3JpbwBi-pByUa4q8bUDAjBpgY1nImHa_uKNjFF_ELE" target=3D"_blank" =
+rel=3D"noopener" style=3D"box-sizing: border-box; color: rgb(138, 130, =
+117);">unsubscribe</a>&nbsp;</div></div></div></td></tr></tbody></table></=
+td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></tabl=
+e><img =
+src=3D"https://go.summ.com/i/abrpvedskgxcv4nvambda2mbrvtseyo273ri3davunc2b=
+dgvfx3fdzihxtlxpygdi5madyeiarbc4.gif" alt=3D"" width=3D"1" height=3D"1" =
+border=3D"0" style=3D"box-sizing: border-box; caret-color: rgb(0, 0, 0); =
+font-family: Helvetica; font-size: 12px; font-style: normal; =
+font-variant-caps: normal; font-weight: 400; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+background-color: rgb(255, 254, 250); text-decoration: none; height: 1px =
+!important; width: 1px !important; border-width: 0px !important; margin: =
+0px !important; padding: 0px =
+!important;"></div></blockquote></div><br></body></html>=
+
+--Apple-Mail=_251E2601-F489-4FDB-93D0-1AE5CA3C5722--
