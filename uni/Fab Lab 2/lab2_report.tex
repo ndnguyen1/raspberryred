@@ -45,6 +45,59 @@
 \end{titlepage}
 
 %------------------------
+\section{Exercise 0: NMOS Transistor Characterisation}
+%------------------------
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{lab1.1}
+    \caption{Tanner T-Spice schematic for the NMOS test bench. The NMOS25 device (Mn1) has $TW = fw = 1.5\,\mu$m, $L = 2\,\mu$m, fingers$=1$. A parametric drain supply (\texttt{VDS\_PARA}) sweeps $V_{DS}$, while \texttt{VGS\_PARA} sets $V_{GS}$. The drain current probe reads $I_D$ of Mn1.}
+    \label{fig:nmos-schematic}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{lab1.2}
+    \caption{NMOS output characteristics: $I_D$ vs $V_{DS}$ for $V_{GS} = 0$, $0.5$, $1.0$, $1.5$, $2.0$, $2.5$\,V (baseline: $fw = 1.5\,\mu$m, $L = 2\,\mu$m). Each curve shows a linear region at low $V_{DS}$ and a saturation region at high $V_{DS}$, with $I_{D,\mathrm{sat}}$ increasing with $V_{GS}$.}
+    \label{fig:nmos-output}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{lab1.3}
+    \caption{NMOS transfer characteristics: $I_D$ vs $V_{GS}$ for three values of $V_{DS}$ (baseline: $fw = 1.5\,\mu$m, $L = 2\,\mu$m). The threshold voltage is approximately $V_T \approx 0.5$\,V. Above threshold, $I_D$ follows a square-law dependence on $V_{GS} - V_T$.}
+    \label{fig:nmos-transfer-baseline}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{{lab1.4 (FW=2)}}
+    \caption{Transfer characteristics with increased finger width $fw = 2\,\mu$m ($\times1.33$ baseline). The on-current increases proportionally with width ($I_{D,\mathrm{sat}} \approx 325\,\mu$A at $V_{GS} = 2.5$\,V), confirming the linear $I_D \propto W/L$ scaling.}
+    \label{fig:nmos-fw2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{{lab1.5 (FW=1)}}
+    \caption{Transfer characteristics with reduced finger width $fw = 1\,\mu$m ($\times0.67$ baseline). On-current decreases accordingly ($I_{D,\mathrm{sat}} \approx 165\,\mu$A), again consistent with $I_D \propto W$.}
+    \label{fig:nmos-fw1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{{lab1.6 (L=1)}}
+    \caption{Transfer characteristics with shorter channel length $L = 1\,\mu$m (half the baseline). On-current increases significantly ($I_{D,\mathrm{sat}} \approx 425\,\mu$A), consistent with $I_D \propto 1/L$ scaling.}
+    \label{fig:nmos-l1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{{lab1.7 (L=3)}}
+    \caption{Transfer characteristics with longer channel length $L = 3\,\mu$m (1.5$\times$ the baseline). On-current decreases ($I_{D,\mathrm{sat}} \approx 170\,\mu$A), again confirming inverse proportionality with $L$.}
+    \label{fig:nmos-l3}
+\end{figure}
+
+%------------------------
 \section{Exercise 1: Transient Analysis}
 %------------------------
 
