@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>USD is live on Blacksheep</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0;
+      background-color: #F2F1EA;
+      font-family: Inter, Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+    a { color: inherit; }
+    .email-wrapper { width: 100%; background-color: #F2F1EA; }
+    .email-container { max-width: 600px; margin: 0 auto; background-color: #F2F1EA; }
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; }
+      .mobile-padding { padding-left: 24px !important; padding-right: 24px !important; }
+    }
+  </style>
+</head>
+<body>
+
+<table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+  <tr>
+    <td align="center">
+
+      <table class="email-container" width="600" cellpadding="0" cellspacing="0" role="presentation">
+
+        <!-- ===== HEADER ===== -->
+        <tr>
+          <td style="padding: 32px 40px 28px; background-color: #F2F1EA;">
+            <img src="data:image/png;base64,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" width="200" height="38" alt="Blacksheep"
+              style="display: block; width: 200px; height: auto; object-fit: contain; object-position: left;">
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 0 40px; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== HERO / INTRO ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 36px 40px 0; background-color: #F2F1EA;">
+            <p style="margin: 0 0 20px; font-family: Inter, Arial, sans-serif; font-size: 14px; color: #0D0D0D; line-height: 1.6;">Hi Patrick,</p>
+            <h1 style="margin: 0 0 14px; font-family: Inter, Arial, sans-serif; font-size: 28px; font-weight: 700; color: #0D0D0D; line-height: 1.2; letter-spacing: -0.5px;">
+              We told you global currencies were coming. Today we're delivering.
+            </h1>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              USD support is now live on Blacksheep.
+            </p>
+          </td>
+        </tr>
+
+        <!-- ===== FLOW GRAPHIC ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <!--
+              Hub-and-spoke layout:
+                AUD  ──⇄──  USD  ──⇄──  USDC
+                                  ──⇄──  USDT
+              USD sits as the central hub. All positions and arrowheads
+              are calculated to sit exactly on node circumferences.
+            -->
+            <!--
+              Icons:
+                AUD  — circle-flags (HatScripts) circular AU flag SVG
+                USD  — inline, Blacksheep lime #BFFF30 hero node
+                USDC — spothq/cryptocurrency-icons blue USDC icon
+                USDT — spothq/cryptocurrency-icons teal USDT icon
+            -->
+            <svg width="520" height="226" viewBox="0 0 520 226"
+                 xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 style="display:block; width:100%; max-width:520px;">
+
+              <defs>
+                <!--
+                  Solid filled arrowhead — 8px deep × 7px tall.
+                  orient="auto-start-reverse" means a single marker definition
+                  works correctly at both ends of a line:
+                    marker-end  → tip points toward the destination node
+                    marker-start → tip points toward the source node
+                -->
+                <marker id="ah" markerWidth="9" markerHeight="8"
+                        refX="8" refY="4"
+                        orient="auto-start-reverse"
+                        markerUnits="userSpaceOnUse">
+                  <path d="M 0,0.5 L 8,4 L 0,7.5 Z" fill="#BFFF30" opacity="0.85"/>
+                </marker>
+                <!-- Clip icon images to perfect circles -->
+                <clipPath id="clip-aud">
+                  <circle cx="72" cy="110" r="28"/>
+                </clipPath>
+                <clipPath id="clip-usdc">
+                  <circle cx="432" cy="52" r="25"/>
+                </clipPath>
+                <clipPath id="clip-usdt">
+                  <circle cx="432" cy="168" r="25"/>
+                </clipPath>
+              </defs>
+
+              <!-- Dark card with hairline border -->
+              <rect width="520" height="226" rx="14" fill="#111111"
+                    stroke="#FFFFFF" stroke-width="0.75" stroke-opacity="0.07"/>
+
+              <!-- Glow rings centred on USD hero (250, 110) -->
+              <circle cx="250" cy="110" r="90" fill="none" stroke="#BFFF30" stroke-width="0.5"  opacity="0.04"/>
+              <circle cx="250" cy="110" r="68" fill="none" stroke="#BFFF30" stroke-width="0.75" opacity="0.07"/>
+              <circle cx="250" cy="110" r="52" fill="none" stroke="#BFFF30" stroke-width="1"    opacity="0.11"/>
+
+              <!-- ── FLOW LINES — single line per connection, marker arrows at both ends ── -->
+
+              <!-- AUD ↔ USD  (horizontal) -->
+              <line x1="101" y1="110" x2="203" y2="110"
+                    stroke="#BFFF30" stroke-width="1.75" stroke-linecap="butt" opacity="0.6"
+                    marker-start="url(#ah)" marker-end="url(#ah)"/>
+
+              <!-- USD ↔ USDC  (diagonal upper-right) -->
+              <line x1="294" y1="97" x2="407" y2="60"
+                    stroke="#BFFF30" stroke-width="1.75" stroke-linecap="butt" opacity="0.6"
+                    marker-start="url(#ah)" marker-end="url(#ah)"/>
+
+              <!-- USD ↔ USDT  (diagonal lower-right) -->
+              <line x1="294" y1="123" x2="407" y2="160"
+                    stroke="#BFFF30" stroke-width="1.75" stroke-linecap="butt" opacity="0.6"
+                    marker-start="url(#ah)" marker-end="url(#ah)"/>
+
+              <!-- ── NODE: AUD  cx=72 cy=110 r=28 ── -->
+              <circle cx="72" cy="110" r="36" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.06"/>
+              <image href="https://cdn.jsdelivr.net/gh/HatScripts/circle-flags@latest/flags/au.svg"
+                     xlink:href="https://cdn.jsdelivr.net/gh/HatScripts/circle-flags@latest/flags/au.svg"
+                     x="44" y="82" width="56" height="56"
+                     clip-path="url(#clip-aud)"/>
+              <circle cx="72" cy="110" r="28" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.15"/>
+              <text x="72" y="151"
+                    font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="600"
+                    fill="#FFFFFF" text-anchor="middle" opacity="0.5" letter-spacing="1.5">AUD</text>
+
+              <!-- ── NODE: USD  cx=250 cy=110 r=46 (hero) ── -->
+              <circle cx="250" cy="110" r="46" fill="#BFFF30"/>
+              <!--
+                Font-rendered $ — far cleaner than hand-drawn paths.
+                dominant-baseline="central" vertically centres the glyph at cy=110.
+              -->
+              <text x="250" y="110"
+                    font-family="Inter, Arial, sans-serif" font-size="46" font-weight="700"
+                    fill="#0D0D0D" text-anchor="middle" dominant-baseline="central">$</text>
+              <text x="250" y="168"
+                    font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700"
+                    fill="#BFFF30" text-anchor="middle" letter-spacing="1">USD</text>
+              <text x="250" y="180"
+                    font-family="Inter, Arial, sans-serif" font-size="7.5" font-weight="600"
+                    fill="#BFFF30" text-anchor="middle" letter-spacing="2.5" opacity="0.6">NOW LIVE</text>
+
+              <!-- ── NODE: USDC  cx=432 cy=52 r=25 ── -->
+              <circle cx="432" cy="52" r="32" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.06"/>
+              <image href="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/usdc.svg"
+                     xlink:href="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/usdc.svg"
+                     x="407" y="27" width="50" height="50"
+                     clip-path="url(#clip-usdc)"/>
+              <circle cx="432" cy="52" r="25" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.15"/>
+              <text x="432" y="89"
+                    font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="600"
+                    fill="#FFFFFF" text-anchor="middle" opacity="0.5" letter-spacing="1.5">USDC</text>
+
+              <!-- ── NODE: USDT  cx=432 cy=168 r=25 ── -->
+              <circle cx="432" cy="168" r="32" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.06"/>
+              <image href="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/usdt.svg"
+                     xlink:href="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/usdt.svg"
+                     x="407" y="143" width="50" height="50"
+                     clip-path="url(#clip-usdt)"/>
+              <circle cx="432" cy="168" r="25" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.15"/>
+              <text x="432" y="205"
+                    font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="600"
+                    fill="#FFFFFF" text-anchor="middle" opacity="0.45" letter-spacing="1.5">USDT</text>
+
+            </svg>
+          </td>
+        </tr>
+
+        <!-- SPACER -->
+        <tr><td style="height: 36px; background-color: #F2F1EA;"></td></tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 0 40px; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== FEATURE 1: USD Balances ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <h2 style="margin: 0 0 12px; padding-left: 12px; border-left: 3px solid #BFFF30; font-family: Inter, Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0D0D0D; letter-spacing: -0.3px; line-height: 1.3;">
+              USD Balances
+            </h2>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              You can now hold USD directly in your Blacksheep account. Deposit, hold a balance, and convert when you're ready.
+            </p>
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== FEATURE 2: USD ↔ Stablecoin ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <h2 style="margin: 0 0 12px; padding-left: 12px; border-left: 3px solid #BFFF30; font-family: Inter, Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0D0D0D; letter-spacing: -0.3px; line-height: 1.3;">
+              USD &#8596; Stablecoin
+            </h2>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              Swap directly between USD and USDC or USDT. If you invoice in USD but settle on-chain, this removes an entire conversion step.
+            </p>
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== FEATURE 3: USD ↔ AUD ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <h2 style="margin: 0 0 12px; padding-left: 12px; border-left: 3px solid #BFFF30; font-family: Inter, Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0D0D0D; letter-spacing: -0.3px; line-height: 1.3;">
+              USD &#8596; AUD
+            </h2>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              Move between USD and AUD inside Blacksheep. No need to route through a separate FX provider.
+            </p>
+          </td>
+        </tr>
+
+        <!-- SPACER -->
+        <tr><td style="height: 40px; background-color: #F2F1EA;"></td></tr>
+
+        <!-- ===== COMING NEXT ===== -->
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 0 40px; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <p style="margin: 0 0 16px; font-family: Inter, Arial, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #888078;">Coming Next</p>
+
+            <!-- Item 1 -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom: 12px;">
+              <tr>
+                <td width="16" valign="top" style="padding-top: 3px;">
+                  <span style="font-family: Inter, Arial, sans-serif; font-size: 13px; font-weight: 700; color: #BFFF30;">&#8212;</span>
+                </td>
+                <td style="padding-left: 10px;">
+                  <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 14px; color: #3D3C37; line-height: 1.6;">
+                    <strong style="color: #0D0D0D;">More Global Currencies:</strong> MXN, BRL, HKD, COP, and ARS.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Item 2 -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom: 12px;">
+              <tr>
+                <td width="16" valign="top" style="padding-top: 3px;">
+                  <span style="font-family: Inter, Arial, sans-serif; font-size: 13px; font-weight: 700; color: #BFFF30;">&#8212;</span>
+                </td>
+                <td style="padding-left: 10px;">
+                  <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 14px; color: #3D3C37; line-height: 1.6;">
+                    <strong style="color: #0D0D0D;">Third-Party Payments:</strong> Pay suppliers directly from your stablecoin balance using local rails, not SWIFT.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Item 3 -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td width="16" valign="top" style="padding-top: 3px;">
+                  <span style="font-family: Inter, Arial, sans-serif; font-size: 13px; font-weight: 700; color: #BFFF30;">&#8212;</span>
+                </td>
+                <td style="padding-left: 10px;">
+                  <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 14px; color: #3D3C37; line-height: 1.6;">
+                    <strong style="color: #0D0D0D;">Native ETH Support:</strong> Direct on- and off-ramps for ETH.
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== SIGN OFF ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 36px 40px 0; background-color: #F2F1EA;">
+            <p style="margin: 0 0 16px; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              If something feels off, or there's a feature that would make your life easier, send us an email:
+              <a href="mailto:hello@blacksheep.money" style="color: #0D0D0D; font-weight: 600; text-decoration: underline;">hello@blacksheep.money</a>.
+              We actually read every one.
+            </p>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              Best regards,<br>
+              <strong style="color: #0D0D0D;">Harrison and the Blacksheep Team</strong>
+            </p>
+          </td>
+        </tr>
+
+        <!-- SPACER -->
+        <tr><td style="height: 40px; background-color: #F2F1EA;"></td></tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 0 40px; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== FOOTER ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 24px 40px 40px; background-color: #F2F1EA;">
+            <p style="margin: 0 0 8px; font-family: Inter, Arial, sans-serif; font-size: 12px; color: #888078; line-height: 1.6; text-align: center;">
+              <strong style="color: #3D3C37;">Blacksheep</strong> &nbsp;&#183;&nbsp; blacksheep.money
+            </p>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 12px; color: #B0AEA5; line-height: 1.6; text-align: center;">
+              You're receiving this because you have an account with Blacksheep.<br>
+              <a href="#" style="color: #888078; text-decoration: underline;">Update preferences</a> &nbsp;&#183;&nbsp; <a href="#" style="color: #888078; text-decoration: underline;">Unsubscribe</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
