@@ -142,6 +142,24 @@ footer { margin:20px 28px 0; background:rgba(255,255,255,0.7); backdrop-filter:b
 .cycle-text { font-size:11px; color:var(--ink2); line-height:1.5; }
 .cycle-text strong { color:var(--ink); }
 
+@media print {
+  /* Fix background gradient repeating/tiling per page */
+  body {
+    background: #dde0ee !important;
+    background-attachment: scroll !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* Remove fixed-position decorative blobs — they stamp on every page */
+  body::before, body::after { display: none !important; }
+  /* Remove unsupported backdrop-filter — renders as opaque artifact */
+  header, footer {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255,255,255,0.95) !important;
+  }
+}
+
 </style>
 </head>
 <body>
