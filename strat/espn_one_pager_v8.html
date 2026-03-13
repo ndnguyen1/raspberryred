@@ -150,8 +150,18 @@ footer { margin:20px 28px 0; background:rgba(255,255,255,0.7); backdrop-filter:b
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  /* Remove fixed-position decorative blobs — they stamp on every page */
-  body::before, body::after { display: none !important; }
+  /* Kill decorative blobs completely — content:none prevents generation,
+     the rest ensures nothing leaks through even in stubborn renderers */
+  body::before, body::after {
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    position: static !important;
+  }
   /* Remove unsupported backdrop-filter — renders as opaque artifact */
   header, footer {
     backdrop-filter: none !important;
