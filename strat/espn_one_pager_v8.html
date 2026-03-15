@@ -187,7 +187,7 @@ footer { margin:20px 28px 0; background:rgba(255,255,255,0.7); backdrop-filter:b
     </div>
   </div>
   <div style="display:flex;align-items:center;gap:18px;">
-    <div class="header-tag">🔒 Confidential</div>
+    <div class="header-tag"><svg width="9" height="11" viewBox="0 0 9 11" fill="none" style="vertical-align:-1px;margin-right:3px;"><rect x="1" y="5" width="7" height="6" rx="1" fill="currentColor"/><path d="M2.5 5V3.5a2 2 0 014 0V5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>Confidential</div>
     <div class="header-stats">
       <div class="hstat"><div class="hstat-val">$3.78<span class="unit">M</span></div><div class="hstat-lbl">Vault AUM</div></div>
       <div class="vdivider"></div>
@@ -378,28 +378,28 @@ footer { margin:20px 28px 0; background:rgba(255,255,255,0.7); backdrop-filter:b
     <div class="eyebrow" style="margin-bottom:8px;">Yield Performance</div>
     <div class="chart-card">
       <div class="chart-hrow"><div class="chart-hed">ESPN Yield Chart</div><div class="chart-badge">~18% avg</div></div>
-      <svg class="chart" viewBox="0 0 500 100" preserveAspectRatio="none">
-        <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5b6bde" stop-opacity="0.2"/><stop offset="100%" stop-color="#5b6bde" stop-opacity="0.01"/></linearGradient></defs>
-        <line x1="0" y1="0"  x2="500" y2="0"  stroke="rgba(100,110,170,0.1)" stroke-width="1"/>
-        <line x1="0" y1="25" x2="500" y2="25" stroke="rgba(100,110,170,0.1)" stroke-width="1"/>
-        <line x1="0" y1="50" x2="500" y2="50" stroke="rgba(100,110,170,0.1)" stroke-width="1"/>
-        <line x1="0" y1="75" x2="500" y2="75" stroke="rgba(100,110,170,0.1)" stroke-width="1"/>
-        <text x="497" y="4"  font-family="Inter" font-size="7" fill="#9da0ba" text-anchor="end">50%</text>
-        <text x="497" y="29" font-family="Inter" font-size="7" fill="#9da0ba" text-anchor="end">40%</text>
-        <text x="497" y="54" font-family="Inter" font-size="7" fill="#9da0ba" text-anchor="end">30%</text>
-        <text x="497" y="79" font-family="Inter" font-size="7" fill="#9da0ba" text-anchor="end">20%</text>
-        <polygon points="0,6 42,80 83,56 125,72 167,56 208,84 250,52 292,56 333,58 375,56 417,62 458,64 500,74 500,100 0,100" fill="url(#cg)"/>
-        <polyline points="0,6 42,80 83,56 125,72 167,56 208,84 250,52 292,56 333,58 375,56 417,62 458,64 500,74" fill="none" stroke="#5b6bde" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-        <line x1="0" y1="64" x2="500" y2="64" stroke="#e91e8c" stroke-width="1" stroke-dasharray="5,4" opacity="0.5"/>
-        <circle cx="0" cy="6" r="2.5" fill="#5b6bde" stroke="white" stroke-width="1.5"/>
-        <circle cx="250" cy="52" r="2.5" fill="#5b6bde" stroke="white" stroke-width="1.5"/>
-        <circle cx="500" cy="74" r="2.5" fill="#5b6bde" stroke="white" stroke-width="1.5"/>
-        <text x="0"   y="97" font-family="Inter" font-size="7" fill="#9da0ba">Sep 4</text>
-        <text x="125" y="97" font-family="Inter" font-size="7" fill="#9da0ba">Oct 16</text>
-        <text x="250" y="97" font-family="Inter" font-size="7" fill="#9da0ba">Nov 27</text>
-        <text x="370" y="97" font-family="Inter" font-size="7" fill="#9da0ba">Jan 8</text>
-        <text x="462" y="97" font-family="Inter" font-size="7" fill="#9da0ba">Feb 19</text>
-      </svg>
+      <div style="position:relative;">
+        <svg class="chart" viewBox="0 0 500 100" preserveAspectRatio="none">
+          <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5b6bde" stop-opacity="0.2"/><stop offset="100%" stop-color="#5b6bde" stop-opacity="0.01"/></linearGradient></defs>
+          <line x1="0" y1="0"  x2="500" y2="0"  stroke="rgba(100,110,170,0.1)" stroke-width="1"/>
+          <line x1="0" y1="25" x2="500" y2="25" stroke="rgba(100,110,170,0.1)" stroke-width="1"/>
+          <line x1="0" y1="50" x2="500" y2="50" stroke="rgba(100,110,170,0.1)" stroke-width="1"/>
+          <line x1="0" y1="75" x2="500" y2="75" stroke="rgba(100,110,170,0.1)" stroke-width="1"/>
+          <polygon points="0,6 42,80 83,56 125,72 167,56 208,84 250,52 292,56 333,58 375,56 417,62 458,64 500,74 500,100 0,100" fill="url(#cg)"/>
+          <polyline points="0,6 42,80 83,56 125,72 167,56 208,84 250,52 292,56 333,58 375,56 417,62 458,64 500,74" fill="none" stroke="#5b6bde" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="0" y1="64" x2="500" y2="64" stroke="#e91e8c" stroke-width="1" stroke-dasharray="5,4" opacity="0.5"/>
+          <circle cx="0" cy="6" r="2.5" fill="#5b6bde" stroke="white" stroke-width="1.5"/>
+          <circle cx="250" cy="52" r="2.5" fill="#5b6bde" stroke="white" stroke-width="1.5"/>
+          <circle cx="500" cy="74" r="2.5" fill="#5b6bde" stroke="white" stroke-width="1.5"/>
+        </svg>
+        <span style="position:absolute;right:2px;top:0px;font-size:8px;color:#9da0ba;font-family:'Inter',sans-serif;line-height:1;">50%</span>
+        <span style="position:absolute;right:2px;top:25px;font-size:8px;color:#9da0ba;font-family:'Inter',sans-serif;line-height:1;">40%</span>
+        <span style="position:absolute;right:2px;top:50px;font-size:8px;color:#9da0ba;font-family:'Inter',sans-serif;line-height:1;">30%</span>
+        <span style="position:absolute;right:2px;top:75px;font-size:8px;color:#9da0ba;font-family:'Inter',sans-serif;line-height:1;">20%</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:8px;color:#9da0ba;font-family:'Inter',sans-serif;margin-top:3px;padding:0 1px;">
+        <span>Sep 4</span><span>Oct 16</span><span>Nov 27</span><span>Jan 8</span><span>Feb 19</span>
+      </div>
     </div>
   </div>
 
@@ -460,7 +460,7 @@ footer { margin:20px 28px 0; background:rgba(255,255,255,0.7); backdrop-filter:b
       </div>
     </div>
     <div class="cycle-row">
-      <span class="cycle-icon">🔄</span>
+      <span class="cycle-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:block;"><path d="M13 8a5 5 0 01-5 5A5 5 0 013 8a5 5 0 015-5 5 5 0 013.5 1.4" stroke="#5b6bde" stroke-width="1.6" stroke-linecap="round"/><path d="M11.5 1v3.5H8" stroke="#5b6bde" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <div class="cycle-text"><strong>Weekly to monthly</strong> option cycles. Liquidity windows open at each roll, creating natural redemption opportunities aligned with cycle expiry.</div>
     </div>
   </div>
