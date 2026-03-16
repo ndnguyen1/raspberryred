@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Third-Party Payments – Blacksheep</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0;
+      background-color: #F2F1EA;
+      font-family: Inter, Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+    a { color: inherit; }
+    .email-wrapper { width: 100%; background-color: #F2F1EA; }
+    .email-container { max-width: 600px; margin: 0 auto; background-color: #F2F1EA; }
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; }
+      .mobile-padding { padding-left: 24px !important; padding-right: 24px !important; }
+    }
+  </style>
+</head>
+<body>
+
+<table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+  <tr>
+    <td align="center">
+
+      <table class="email-container" width="600" cellpadding="0" cellspacing="0" role="presentation">
+
+        <!-- ===== HEADER ===== -->
+        <tr>
+          <td style="padding: 32px 40px 28px; background-color: #F2F1EA;">
+            <img src="Logo Horizontal.png" width="200" height="38" alt="Blacksheep"
+                 style="display: block; width: 200px; height: auto; object-fit: contain; object-position: left;">
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 0 40px; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== HERO / INTRO ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 36px 40px 0; background-color: #F2F1EA;">
+            <p style="margin: 0 0 20px; font-family: Inter, Arial, sans-serif; font-size: 14px; color: #0D0D0D; line-height: 1.6;">Hi Patrick,</p>
+            <h1 style="margin: 0 0 14px; font-family: Inter, Arial, sans-serif; font-size: 28px; font-weight: 700; color: #0D0D0D; line-height: 1.2; letter-spacing: -0.5px;">
+              Next on the list, and right on time.
+            </h1>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              Third-party payments are live on Blacksheep.
+            </p>
+          </td>
+        </tr>
+
+        <!-- ===== FLOW GRAPHIC: THIRD-PARTY PAYMENTS ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <!--
+              Three-node horizontal layout:
+                CLIENT  ──→──  YOU  ──→──  SUPPLIER
+              YOU is the lime hero in the centre.
+              "GET PAID DIRECTLY" labels the incoming arrow.
+              "PAY SUPPLIERS DIRECTLY" labels the outgoing arrow.
+            -->
+            <svg width="520" height="210" viewBox="0 0 520 210"
+                 xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 style="display:block; width:100%; max-width:520px;">
+
+              <defs>
+                <marker id="ah" markerWidth="9" markerHeight="8"
+                        refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+                  <path d="M 0,0.5 L 8,4 L 0,7.5 Z" fill="#BFFF30" opacity="0.85"/>
+                </marker>
+                <clipPath id="clip-c1"><circle cx="75" cy="50"  r="20"/></clipPath>
+                <clipPath id="clip-c2"><circle cx="75" cy="105" r="20"/></clipPath>
+                <clipPath id="clip-c3"><circle cx="75" cy="160" r="20"/></clipPath>
+                <clipPath id="clip-you"><circle cx="260" cy="105" r="40"/></clipPath>
+                <clipPath id="clip-sup"><circle cx="445" cy="105" r="26"/></clipPath>
+              </defs>
+
+              <!-- Dark card with hairline border -->
+              <rect width="520" height="210" rx="14" fill="#111111"
+                    stroke="#FFFFFF" stroke-width="0.75" stroke-opacity="0.07"/>
+
+              <!-- ── ARROWS: CLIENTS → YOU (fan-in) ── -->
+              <line x1="94"  y1="56"  x2="222" y2="94"
+                    stroke="#BFFF30" stroke-width="1.5" opacity="0.45" marker-end="url(#ah)"/>
+              <line x1="95"  y1="105" x2="220" y2="105"
+                    stroke="#BFFF30" stroke-width="1.5" opacity="0.45" marker-end="url(#ah)"/>
+              <line x1="94"  y1="154" x2="222" y2="116"
+                    stroke="#BFFF30" stroke-width="1.5" opacity="0.45" marker-end="url(#ah)"/>
+
+              <!-- Incoming label (above all three fan arrows) -->
+              <text x="155" y="22"
+                    font-family="Inter, Arial, sans-serif" font-size="7" font-weight="700"
+                    fill="#BFFF30" text-anchor="middle" letter-spacing="1.5" opacity="0.7">GET PAID</text>
+              <text x="155" y="32"
+                    font-family="Inter, Arial, sans-serif" font-size="6.5" font-weight="600"
+                    fill="#BFFF30" text-anchor="middle" letter-spacing="2" opacity="0.45">DIRECTLY</text>
+
+              <!-- ── ARROW: YOU → SUPPLIER ── -->
+              <line x1="300" y1="105" x2="419" y2="105"
+                    stroke="#BFFF30" stroke-width="1.75" opacity="0.55" marker-end="url(#ah)"/>
+              <text x="358" y="88"
+                    font-family="Inter, Arial, sans-serif" font-size="7" font-weight="700"
+                    fill="#BFFF30" text-anchor="middle" letter-spacing="1.5" opacity="0.7">PAY SUPPLIERS</text>
+              <text x="358" y="98"
+                    font-family="Inter, Arial, sans-serif" font-size="6.5" font-weight="600"
+                    fill="#BFFF30" text-anchor="middle" letter-spacing="2" opacity="0.45">DIRECTLY</text>
+
+              <!-- ── CLIENT NODE 1 ── -->
+              <g clip-path="url(#clip-c1)">
+                <circle cx="75" cy="50"  r="20" fill="#1C1C1C"/>
+                <circle cx="75" cy="40"  r="8"  fill="#AAAAAA" opacity="0.55"/>
+                <ellipse cx="75" cy="61" rx="15" ry="12" fill="#777777" opacity="0.40"/>
+              </g>
+              <circle cx="75" cy="50" r="20" fill="none"
+                      stroke="#BFFF30" stroke-width="1.25" stroke-opacity="0.28"/>
+
+              <!-- ── CLIENT NODE 2 ── -->
+              <g clip-path="url(#clip-c2)">
+                <circle cx="75" cy="105" r="20" fill="#1C1C1C"/>
+                <circle cx="75" cy="95"  r="8"  fill="#AAAAAA" opacity="0.55"/>
+                <ellipse cx="75" cy="116" rx="15" ry="12" fill="#777777" opacity="0.40"/>
+              </g>
+              <circle cx="75" cy="105" r="20" fill="none"
+                      stroke="#BFFF30" stroke-width="1.25" stroke-opacity="0.28"/>
+
+              <!-- ── CLIENT NODE 3 ── -->
+              <g clip-path="url(#clip-c3)">
+                <circle cx="75" cy="160" r="20" fill="#1C1C1C"/>
+                <circle cx="75" cy="150" r="8"  fill="#AAAAAA" opacity="0.55"/>
+                <ellipse cx="75" cy="171" rx="15" ry="12" fill="#777777" opacity="0.40"/>
+              </g>
+              <circle cx="75" cy="160" r="20" fill="none"
+                      stroke="#BFFF30" stroke-width="1.25" stroke-opacity="0.28"/>
+
+              <!-- CLIENTS group label -->
+              <text x="75" y="191"
+                    font-family="Inter, Arial, sans-serif" font-size="8.5" font-weight="600"
+                    fill="#FFFFFF" text-anchor="middle" opacity="0.40" letter-spacing="1.5">CLIENTS</text>
+
+              <!-- ── YOU NODE (centre hero — sheep icon on lime) ── -->
+              <circle cx="260" cy="105" r="54" fill="none" stroke="#BFFF30" stroke-width="0.5" opacity="0.06"/>
+              <circle cx="260" cy="105" r="46" fill="none" stroke="#BFFF30" stroke-width="0.75" opacity="0.09"/>
+              <g clip-path="url(#clip-you)">
+                <circle cx="260" cy="105" r="40" fill="#BFFF30"/>
+                <image href="SVG/Logo_Black.svg" xlink:href="SVG/Logo_Black.svg"
+                       x="225" y="70" width="70" height="70"/>
+              </g>
+              <text x="260" y="158"
+                    font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="700"
+                    fill="#BFFF30" text-anchor="middle" letter-spacing="2">YOU</text>
+
+              <!-- ── SUPPLIER NODE (building icon) ── -->
+              <circle cx="445" cy="105" r="34" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.05"/>
+              <g clip-path="url(#clip-sup)">
+                <circle cx="445" cy="105" r="26" fill="#1C1C1C"/>
+                <!-- Building body -->
+                <rect x="430" y="97" width="30" height="20" fill="#2A2A2A"/>
+                <!-- Roof -->
+                <polygon points="445,85 428,99 462,99" fill="#333333"/>
+                <!-- Windows -->
+                <rect x="432" y="100" width="8" height="6" rx="0.5" fill="#BFFF30" opacity="0.22"/>
+                <rect x="449" y="100" width="8" height="6" rx="0.5" fill="#BFFF30" opacity="0.22"/>
+                <!-- Door -->
+                <rect x="440" y="108" width="10" height="9" rx="0.5" fill="#0D0D0D"/>
+              </g>
+              <circle cx="445" cy="105" r="26" fill="none"
+                      stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.14"/>
+              <text x="445" y="142"
+                    font-family="Inter, Arial, sans-serif" font-size="8.5" font-weight="600"
+                    fill="#FFFFFF" text-anchor="middle" opacity="0.45" letter-spacing="1.5">SUPPLIER</text>
+
+              <!-- ── WATERMARK: Blacksheep logo ── -->
+              <image href="Logo Horizontal.png" xlink:href="Logo Horizontal.png"
+                     x="210" y="195" width="100" height="11"
+                     opacity="0.12"/>
+
+            </svg>
+          </td>
+        </tr>
+
+        <!-- SPACER -->
+        <tr><td style="height: 36px; background-color: #F2F1EA;"></td></tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 0 40px; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== FEATURE 1 ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <h2 style="margin: 0 0 12px; padding-left: 12px; border-left: 3px solid #BFFF30; font-family: Inter, Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0D0D0D; letter-spacing: -0.3px; line-height: 1.3;">
+              Pay Anyone, From Your Stablecoin Balance
+            </h2>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              Send payments to external accounts straight from your USDC or USDT balance. No manual conversions, no extra steps.
+            </p>
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== FEATURE 2 ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <h2 style="margin: 0 0 12px; padding-left: 12px; border-left: 3px solid #BFFF30; font-family: Inter, Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0D0D0D; letter-spacing: -0.3px; line-height: 1.3;">
+              Local Rails, Not SWIFT
+            </h2>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              Payments settle via local rails: faster, cheaper, and without the friction of international wire transfers.
+            </p>
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== FEATURE 3 ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <h2 style="margin: 0 0 12px; padding-left: 12px; border-left: 3px solid #BFFF30; font-family: Inter, Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0D0D0D; letter-spacing: -0.3px; line-height: 1.3;">
+              Swaps Go Where You Need Them
+            </h2>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              Swapped funds can go straight to any third-party account. No extra steps, no leaving the platform.
+            </p>
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== COMING NEXT ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 28px 40px 0; background-color: #F2F1EA;">
+            <h2 style="margin: 0 0 12px; padding-left: 12px; border-left: 3px solid #BFFF30; font-family: Inter, Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0D0D0D; letter-spacing: -0.3px; line-height: 1.3;">
+              Coming Next
+            </h2>
+            <p style="margin: 0 0 12px; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              We aren't slowing down. Here is what ships next:
+            </p>
+            <ul style="margin: 0; padding-left: 20px; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.8;">
+              <li><strong style="color: #0D0D0D;">More Global Currencies:</strong> MXN, BRL, HKD, COP, and ARS.</li>
+              <li><strong style="color: #0D0D0D;">Native ETH Support:</strong> Direct on- and off-ramps for ETH.</li>
+              <li><strong style="color: #0D0D0D;">Expanded Rails:</strong> More local payment networks across additional regions.</li>
+            </ul>
+          </td>
+        </tr>
+
+        <!-- SPACER -->
+        <tr><td style="height: 40px; background-color: #F2F1EA;"></td></tr>
+
+        <!-- ===== SIGN OFF ===== -->
+        <tr>
+          <td style="padding: 0 40px; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="mobile-padding" style="padding: 36px 40px 0; background-color: #F2F1EA;">
+            <p style="margin: 0 0 16px; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              If something feels off, or there's a feature that would make your life easier, send us an email:
+              <a href="mailto:hello@blacksheep.money" style="color: #0D0D0D; font-weight: 600; text-decoration: underline;">hello@blacksheep.money</a>.
+              We actually read every one.
+            </p>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 15px; color: #3D3C37; line-height: 1.6;">
+              Best regards,<br>
+              <strong style="color: #0D0D0D;">Harrison and the Blacksheep Team</strong>
+            </p>
+          </td>
+        </tr>
+
+        <!-- SPACER -->
+        <tr><td style="height: 40px; background-color: #F2F1EA;"></td></tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td style="padding: 0 40px; background-color: #F2F1EA;">
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+              <tr><td style="border-top: 1px solid #D6D4C8; font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ===== FOOTER ===== -->
+        <tr>
+          <td class="mobile-padding" style="padding: 24px 40px 40px; background-color: #F2F1EA;">
+            <p style="margin: 0 0 8px; font-family: Inter, Arial, sans-serif; font-size: 12px; color: #888078; line-height: 1.6; text-align: center;">
+              <strong style="color: #3D3C37;">Blacksheep</strong> &nbsp;&#183;&nbsp; blacksheep.money
+            </p>
+            <p style="margin: 0; font-family: Inter, Arial, sans-serif; font-size: 12px; color: #B0AEA5; line-height: 1.6; text-align: center;">
+              You're receiving this because you have an account with Blacksheep.<br>
+              <a href="#" style="color: #888078; text-decoration: underline;">Update preferences</a> &nbsp;&#183;&nbsp; <a href="#" style="color: #888078; text-decoration: underline;">Unsubscribe</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
